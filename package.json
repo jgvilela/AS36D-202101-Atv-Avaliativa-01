@@ -1,0 +1,22 @@
+{
+  "name": "as36d-202101-atv-avaliativa-01",
+  "version": "1.0.0",
+  "description": "Atividade Avaliativa 01 da Disciplina AS36D - 2021-01",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgvilela/AS36D-202101-Atv-Avaliativa-01.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgvilela/AS36D-202101-Atv-Avaliativa-01/issues"
+  },
+  "homepage": "https://github.com/jgvilela/AS36D-202101-Atv-Avaliativa-01#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
