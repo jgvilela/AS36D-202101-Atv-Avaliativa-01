@@ -19,5 +19,9 @@
   "devDependencies": {
     "jest": "^27.0.6",
     "jest-matcher-deep-close-to": "^2.0.1"
+  },
+  "dependencies": {
+    "ramda": "^0.27.1",
+    "xmldom": "^0.6.0"
   }
 }
