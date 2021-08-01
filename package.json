@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jgvilela/AS36D-202101-Atv-Avaliativa-01#readme",
   "devDependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "jest-matcher-deep-close-to": "^2.0.1"
   }
 }
