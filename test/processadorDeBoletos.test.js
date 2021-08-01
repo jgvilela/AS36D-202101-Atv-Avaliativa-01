@@ -93,4 +93,38 @@ describe('Processador de Boletos' , () => {
             tipo: 'boleto'
         },2);
     });
+
+    test('Fatura: 2.000,00 / Boletos: 500,00; 400,00 / Fatura NÃO-PAGA e dois pagamentos' , () => {
+        fatura.nomeCliente = 'Paulo das Couves Júnior';
+        fatura.data = Date(2021,1,1);
+        fatura.valorTotal = 2000.00;
+        fatura.status = 0;
+
+        const boleto1 = {
+            codigo: '34191790010104351004791020150008885180050000',
+            data: Date(2021,2,1),
+            valor: 500.00
+        };
+        const boleto2 = {
+            codigo: '34191790010104351004791020150008285460040000',
+            data: Date(2021,3,1),
+            valor: 400.00
+        };
+        const arr = [boleto1, boleto2];
+
+        const pagamentos = fatura.processadorDeBoletos('boleto',arr);
+        
+        expect(fatura.status).toBe(0);
+        expect(pagamentos.length).toBe(2);
+        expect(pagamentos[0]).toBeDeepCloseTo({
+            valorPago: 500.00,
+            data: Date(2021,2,1),
+            tipo: 'boleto'
+        },2);
+        expect(pagamentos[1]).toBeDeepCloseTo({
+            valorPago: 400.00,
+            data: Date(2021,3,1),
+            tipo: 'boleto'
+        },2);
+    });
 });
