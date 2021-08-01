@@ -1,1 +1,2 @@
-{}
+{"C:\\Users\\jgvil\\Documents\\GitHub\\AS36D-202101-Atv-Avaliativa-01\\lib\\fatura.js": {"path":"C:\\Users\\jgvil\\Documents\\GitHub\\AS36D-202101-Atv-Avaliativa-01\\lib\\fatura.js","statementMap":{"0":{"start":{"line":4,"column":8},"end":{"line":4,"column":24}},"1":{"start":{"line":5,"column":8},"end":{"line":21,"column":9}},"2":{"start":{"line":25,"column":0},"end":{"line":25,"column":24}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":3,"column":4},"end":{"line":3,"column":5}},"loc":{"start":{"line":3,"column":44},"end":{"line":22,"column":5}},"line":3}},"branchMap":{},"s":{"0":1,"1":1,"2":1},"f":{"0":1},"b":{},"_coverageSchema":"1a1c01bbd47fc00a2c39e90264f33305004495a9","hash":"bc1615710f71af2e19dd02ed8f9918e7accd4dba"}
+}
