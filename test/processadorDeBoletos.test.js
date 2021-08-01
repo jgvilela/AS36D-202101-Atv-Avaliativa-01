@@ -8,23 +8,23 @@ describe('Processador de Boletos' , () => {
     
     test('Fatura: 1.500,00 / Boletos: 500,00; 400,00; 600,00 / Fatura PAGA e três pagamentos' , () => {
         fatura.nomeCliente = 'Joao das Couves';
-        fatura.data = new Date(2021,1,1);
+        fatura.data = Date(2021,1,1);
         fatura.valorTotal = 1500.00;
         fatura.status = 0;
 
         const boleto1 = {
             codigo: '34191790010104351004791020150008885180050000',
-            data: new Date(2021,2,1),
+            data: Date(2021,2,1),
             valor: 500.00
         };
         const boleto2 = {
             codigo: '34191790010104351004791020150008285460040000',
-            data: new Date(2021,3,1),
+            data: Date(2021,3,1),
             valor: 400.00
         };
         const boleto3 = {
             codigo: '34191790010104351004791020150008885770060000',
-            data: new Date(2021,4,1),
+            data: Date(2021,4,1),
             valor: 600.00
         };
         const arr = [boleto1, boleto2, boleto3];
