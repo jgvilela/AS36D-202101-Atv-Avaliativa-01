@@ -29,7 +29,7 @@ describe('Processador de Boletos' , () => {
         };
         const arr = [boleto1, boleto2, boleto3];
 
-        const pagamentos = fatura.processadorDeBoletos('boletos',arr);
+        const pagamentos = fatura.processadorDeBoletos('boleto',arr);
         
         expect(fatura.status).toBe(1);
         expect(pagamentos.length).toBe(3);
@@ -73,7 +73,7 @@ describe('Processador de Boletos' , () => {
         };
         const arr = [boleto1, boleto2, boleto3];
 
-        const pagamentos = fatura.processadorDeBoletos('boletos',arr);
+        const pagamentos = fatura.processadorDeBoletos('boleto',arr);
         
         expect(fatura.status).toBe(1);
         expect(pagamentos.length).toBe(3);
