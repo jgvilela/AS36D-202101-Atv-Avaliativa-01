@@ -2,55 +2,71 @@ const R = require('ramda');
 
 const isEven = (number) => {
     const n = R.clone(number);
-    let even = n % 2 == 0;
-    return even;
+    n.even = n.value % 2 == 0;
+    return n;
 }
 
 const positive = (number) => {
     const n = R.clone(number);
-    let positive = n > 0;
-    return positive;
+    n.positive = n.value > 0;
+    return n;
 }
 
 const isOdd = (number) => {
     const n = R.clone(number);
-    let odd = n % 2 != 0;
-    return odd;
+    n.odd = n.value % 2 != 0;
+    return n;
 }
 
 const negative = (number) => {
     const n = R.clone(number);
-    let negative = n > 0;
-    return negative;
+    n.negative = n.value < 0;
+    return n;
 }
 
 const isZero = (number) => {
     const n = R.clone(number);
-    let zero = n == 0;
+    n.zero = n.value == 0;
     return n;
 }
 
-const isPrime = (number, divisor) => {
+const isPrime = (number, divisor = 3) => {
     const n = R.clone(number);
 
-    if (n <= 2)  
-        return (n == 2) ? true : false;
+    if (n.value <= 2) {
+        n.prime = (n.value == 2) ? true : false;
+        return n;
+    }  
 
-    if (n % divisor == 0)
-        return false;
-    if (divisor * divisor > n)
-        return true;
+    if (n.value % divisor == 0) {
+        n.prime = false;
+        return n;
+    }
+    if (divisor * divisor > n.value) {
+        n.prime = true;
+        return n;
+    }
 
-    return isPrime(n, divisor + 1);
+    return isPrime(n, divisor + 2);
 }
 
 const mapToNumberObject = (num) => {
     return { value: num };
 }
 
+const allTogether = R.pipe(
+    isEven,
+    positive,
+    isOdd,
+    negative,
+    isZero,
+    isPrime
+);
+
 const arr = [-1, 50, 5, 10, -8, 20, 25, 0, 100, 14, -123];
 
 const arrObjects = arr.map(mapToNumberObject);
+console.log(allTogether(mapToNumberObject(-24)));
 
 // ExercÃ­cio 1: use map() para transformar 'arr' em objetos usando mapToNumberObject()
 
