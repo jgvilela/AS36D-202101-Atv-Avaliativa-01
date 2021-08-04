@@ -65,8 +65,9 @@ const allTogether = R.pipe(
 
 const arr = [-1, 50, 5, 10, -8, 20, 25, 0, 100, 14, -123];
 
-const arrObjects = arr.map(mapToNumberObject);
-console.log(allTogether(mapToNumberObject(-24)));
+const arrObjects = arr.map(mapToNumberObject).map(allTogether);
+
+console.log(arrObjects);
 
 // ExercÃ­cio 1: use map() para transformar 'arr' em objetos usando mapToNumberObject()
 
