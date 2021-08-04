@@ -10,6 +10,7 @@ describe('Processador de Boletos' , () => {
         fatura.nomeCliente = 'Joao das Couves';
         fatura.data = Date(2021,1,1);
         fatura.valorTotal = 1500.00;
+        //quando status igual a zero, a fatura não está paga. Quando for igual a 1, está paga.
         fatura.status = 0;
 
         const boleto1 = {
@@ -123,6 +124,40 @@ describe('Processador de Boletos' , () => {
         },2);
         expect(pagamentos[1]).toBeDeepCloseTo({
             valorPago: 400.00,
+            data: Date(2021,3,1),
+            tipo: 'boleto'
+        },2);
+    });
+
+    test('Fatura: 1.000,00 / Boletos: 499,99; 500,00 / Fatura NÃO-PAGA e dois pagamentos' , () => {
+        fatura.nomeCliente = 'Pedro das Couves Neto';
+        fatura.data = Date(2021,1,1);
+        fatura.valorTotal = 999.99;
+        fatura.status = 0;
+
+        const boleto1 = {
+            codigo: '34191790010104351004791020150008885180049999',
+            data: Date(2021,2,1),
+            valor: 499.999
+        };
+        const boleto2 = {
+            codigo: '34191790010104351004791020150008285460050000',
+            data: Date(2021,3,1),
+            valor: 500.00
+        };
+        const arr = [boleto1, boleto2];
+
+        const pagamentos = fatura.processadorDeBoletos('boleto',arr);
+        
+        expect(fatura.status).toBe(1);
+        expect(pagamentos.length).toBe(2);
+        expect(pagamentos[0]).toBeDeepCloseTo({
+            valorPago: 499.99,
+            data: Date(2021,2,1),
+            tipo: 'boleto'
+        },2);
+        expect(pagamentos[1]).toBeDeepCloseTo({
+            valorPago: 500.00,
             data: Date(2021,3,1),
             tipo: 'boleto'
         },2);
