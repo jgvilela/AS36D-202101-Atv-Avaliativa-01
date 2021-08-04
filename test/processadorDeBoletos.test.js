@@ -129,7 +129,7 @@ describe('Processador de Boletos' , () => {
         },2);
     });
 
-    test('Fatura: 1.000,00 / Boletos: 499,99; 500,00 / Fatura NÃO-PAGA e dois pagamentos' , () => {
+    test('Fatura: 999,99 / Boletos: 499,99; 500,00 / Fatura PAGA e dois pagamentos' , () => {
         fatura.nomeCliente = 'Pedro das Couves Neto';
         fatura.data = Date(2021,1,1);
         fatura.valorTotal = 999.99;
@@ -138,7 +138,7 @@ describe('Processador de Boletos' , () => {
         const boleto1 = {
             codigo: '34191790010104351004791020150008885180049999',
             data: Date(2021,2,1),
-            valor: 499.999
+            valor: 499.99
         };
         const boleto2 = {
             codigo: '34191790010104351004791020150008285460050000',
