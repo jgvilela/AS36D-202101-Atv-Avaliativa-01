@@ -1,36 +1,36 @@
 const R = require('ramda');
 
-function isEven(number) {
+const isEven = (number) => {
     const n = R.clone(number);
     let even = n % 2 == 0;
     return even;
 }
 
-function positive(number) {
+const positive = (number) => {
     const n = R.clone(number);
     let positive = n > 0;
     return positive;
 }
 
-function isOdd(number) {
+const isOdd = (number) => {
     const n = R.clone(number);
     let odd = n % 2 != 0;
     return odd;
 }
 
-function negative(number) {
+const negative = (number) => {
     const n = R.clone(number);
     let negative = n > 0;
     return negative;
 }
 
-function isZero(number) {
+const isZero = (number) => {
     const n = R.clone(number);
     let zero = n == 0;
     return n;
 }
 
-function isPrime(number, divisor) {
+const isPrime = (number, divisor) => {
     const n = R.clone(number);
 
     if (n <= 2)  
@@ -44,15 +44,13 @@ function isPrime(number, divisor) {
     return isPrime(n, divisor + 1);
 }
 
-function mapToNumberObject(num) {
+const mapToNumberObject = (num) => {
     return { value: num };
 }
 
 const arr = [-1, 50, 5, 10, -8, 20, 25, 0, 100, 14, -123];
 
 const arrObjects = arr.map(mapToNumberObject);
-
-console.log(isPrime(2));
 
 // ExercÃ­cio 1: use map() para transformar 'arr' em objetos usando mapToNumberObject()
 
