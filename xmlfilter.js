@@ -58,5 +58,7 @@ module.exports = {
     elementsToArray,
     getGitHubProject,
     contentOfSource,
-    contentOfID
+    contentOfID,
+    contentOfAdded,
+    contentOfUpdated
 };
